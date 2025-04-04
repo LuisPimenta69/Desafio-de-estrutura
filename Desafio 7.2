@@ -1,0 +1,25 @@
+<?php
+
+function cantarPatinhos($quantidade) {
+    for ($i = $quantidade; $i > 0; $i--) {
+        echo "$i patinho(s) foram passear, além das montanhas para brincar.<br>";
+        echo "A mamãe gritou: quá, quá, quá,quá!<br>";
+        echo "Mas só $i patinho(s) voltaram de lá.<br><br>";
+    }
+    
+   
+    echo "A mamãe patinha foi chamar:<br>";
+    echo "Patinho, ô, ô, ô! Patinho, ô, ô, ô!<br>";
+    echo "E todos os patinhos voltaram de lá!<br>";
+}
+
+echo "Bem-vindo(a)!<br>";
+$quantidade = (int)readline(" Para podemos começa forneça a quantidade de patinhos que dejesa passear!: ");
+
+
+if ($quantidade <= 0) {
+    echo "Por favor, digite um número válido de patinhos (maior que 0).";
+} else {
+    cantarPatinhos($quantidade);
+}
+?>
