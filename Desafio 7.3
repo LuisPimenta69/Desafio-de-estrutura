@@ -1,0 +1,58 @@
+<?php
+
+$contas = [
+    [
+        'numero' => '41234-5',
+        'titular' => 'Gabriel Henrique  ',
+        'saldo' => 0,00
+    ],
+    [
+        'numero' => '12345-6',
+        'titular' => 'Luis Felipe  ',
+        'saldo' => -2000000,00
+    ],
+    [
+        'numero' => '23456-7',
+        'titular' => 'Alexandre Santos',
+        'saldo' => 1000.00,
+    ],
+    [
+        'numero' => '34567-8',
+        'titular' => 'Paulo Henrique',
+        'saldo' => 100.50,
+    ],
+    [
+        'numero' => '43678-9',
+        'titular' => 'João Silva  ',
+        'saldo' => 400,00
+    ],
+];
+
+
+function exibirConta($conta) {
+    echo "Número da conta: " . $conta['numero'] . PHP_EOL;
+    echo "Titular: " . $conta['titular'] . PHP_EOL;
+    echo "Saldo: R$ " . number_format($conta['saldo'], 2, ',', '.') . PHP_EOL;
+    echo str_repeat('-', 30) . PHP_EOL;
+}
+
+
+while (true) {
+    echo "Selecione uma conta para consultar (0 para sair):" . PHP_EOL;
+    
+    foreach ($contas as $index => $conta) {
+        echo ($index + 1) . ". " . $conta['titular'] . PHP_EOL;
+    }
+    
+    $opcao = (int)readline("Digite o número da conta: ");
+    
+    if ($opcao === 0) {
+        echo "Saindo da aplicação..." . PHP_EOL;
+        break;
+    } elseif ($opcao > 0 && $opcao <= count($contas)) {
+        exibirConta($contas[$opcao - 1]);
+    } else {
+        echo "Opção inválida. Tente novamente." . PHP_EOL;
+    }
+}
+?>
