@@ -1,0 +1,28 @@
+?php
+session_start();
+
+$usuario_correto = "admin";
+$senha_correta = "12345";
+
+if (isset($_POST['Usuário']) && isset($_POST['senha'])) {
+    $usuário = $_POST['Usuário'];
+    $senha = $_POST['senha'];
+
+    if ($usuário == $usuario_correto && $senha == $senha_correta) {
+        
+        $_SESSION['Usuário'] = $usuário;
+        header("Location: dashboard.php");
+        exit();
+    } else {
+        
+        $_SESSION['error'] = "Usuário ou senha inválidos!";
+        header("Location: login.php");
+        exit();
+    }
+} else {
+   
+    $_SESSION['error'] = "Por favor, preencha todos os campos.";
+    header("Location: login.php");
+    exit();
+}
+?>
